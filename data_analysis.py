@@ -1,23 +1,22 @@
-# data_analysis.py
+class Car:
+    def __init__(self, make, model, year, speed):
+        self.make = make
+        self.model = model
+        self.year = year
+        self.speed = speed
 
-import pandas as pd
-import numpy as np
+    def honk(self):
+        print("Beep beep!")
 
-# Generate random data
-np.random.seed(0)
-data = np.random.randint(1, 101, 50)  # 50 random integers between 1 and 100
+    def accelerate(self, rate):
+        self.speed += rate
 
-# Convert to DataFrame
-df = pd.DataFrame(data, columns=['Numbers'])
+    def get_speed(self):
+        return self.speed
 
-# Calculate statistics
-mean_value = df['Numbers'].mean()
-median_value = df['Numbers'].median()
-std_dev = df['Numbers'].std()
 
-# Display results
-print(f"Mean: {mean_value}")
-print(f"Median: {median_value}")
-print(f"Standard Deviation: {std_dev}")
-
+my_car = Car("Toyota", "Camry", 2020, 0)
+my_car.honk()  # Output: "Beep beep!"
+my_car.accelerate(30)
+print(my_car.get_speed())  # Output: 30
 
